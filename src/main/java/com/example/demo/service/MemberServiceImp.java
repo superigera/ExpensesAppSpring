@@ -12,7 +12,14 @@ public class MemberServiceImp implements MemberService {
 	@Autowired
 	private MemberMapper memberMapper;
 
-	@Override
+	/**
+	 * 新規会員登録
+	 * 
+	 * 画面からPOSTされた会員情報をDBに登録する
+	 * 
+	 * @param signupInfo
+	 * 
+	 */
 	public void createMember(MemberInfo signupInfo) {
 
 		// 新規会員登録
