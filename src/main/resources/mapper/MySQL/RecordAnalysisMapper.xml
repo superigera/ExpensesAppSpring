@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.repository.RecordAnalysisMapper">
+
+	<!-- 家計簿リスト取得 -->
+	<select id="getRecords" resultType="com.example.demo.model.HouseholdAccountBook">
+	    select * from records
+	    inner join categories
+	    on records.categoryId = categories.categoryId
+	    where 1=1
+  		<if test="categoryId != -1">
+	    	AND records.categoryId = #{categoryId}
+	  	</if>
+	  	<if test="startDating != ''">
+	    	AND dating <![CDATA[ >= ]]> #{startDating}
+	  	</if>
+	  	<if test="endDating != ''">
+	    	AND dating <![CDATA[ <= ]]>#{endDating}
+	  	</if>
+	    <if test="bool">
+	        order by records.dating
+	    </if>
+	    <if test="not bool">
+	        order by records.dating desc
+	    </if>	
+	</select>
+	
+	<!-- 家計簿登録 -->
+	<insert id="createRecord">
+		insert into records(
+		dating,
+		amountOfMoney,
+		categoryId,
+		remarks,
+		created_at
+		)
+		values(
+		#{dating},
+		#{amountOfMoney},
+		#{categoryId},
+		#{remarks},
+		CURRENT_TIMESTAMP
+		)
+	</insert>
+	
+	<!-- 家計簿削除 -->
+	<delete id="deleteRecord">
+		delete from records
+		where recordId = #{recordId}
+	</delete>
+	
+	<!-- 家計簿取得 -->
+	<select id="getRecord" resultType="com.example.demo.model.HouseholdAccountBook">
+		select * from records
+		inner join categories
+		on records.categoryId = categories.categoryId
+		where recordId = #{recordId}
+	</select>
+	
+</mapper>
