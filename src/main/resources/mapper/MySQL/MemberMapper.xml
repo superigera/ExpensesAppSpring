@@ -10,13 +10,15 @@
 		lastName,
 		firstName,
 		email,
-		password
+		password,
+		created_at
 		)
 		values(
 		#{lastName},
 		#{firstName},
 		#{email},
 		#{password},
+		#{created_at}
 		)
 	</insert>
 	

@@ -14,4 +14,8 @@ public class MemberInfo {
 	private String email;
 
 	private String password;
+
+	private String created_at;
+
+	private String update_at;
 }
