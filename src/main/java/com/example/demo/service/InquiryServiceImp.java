@@ -38,16 +38,8 @@ public class InquiryServiceImp implements InquiryService {
 	@Override
 	public void sendEmail(InquiryInfo InquiryInfo) throws IOException {
 
-		// まず簡単なやつが送信できるか確認する
-
-		// ハードコーディングやめる
-//		APIKEY：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
-
-		// templateID
-//		d-becb29ebce1d45ffa434482458ab356a
-
 		try {
-			SendGrid sg = new SendGrid("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");
+			SendGrid sg = new SendGrid("API:KEY");
 			Request request = new Request();
 			request.setMethod(Method.POST);
 			request.setEndpoint("mail/send");
