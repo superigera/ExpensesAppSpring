@@ -46,10 +46,7 @@ public class RecordAnalysisController {
 	public List<HouseholdAccountBook> getRecordSortList(@RequestParam("categoryId") int categoryId,
 			@RequestParam("startDating") String startDating, @RequestParam("endDating") String endDating,
 			@RequestParam("sort") Boolean bool) {
-		System.out.println(categoryId);
-		System.out.println(startDating);
-		System.out.println(endDating);
-		System.out.println(bool);
+
 		return recordservice.getRecords(bool, categoryId, startDating, endDating);
 	}
 
@@ -85,6 +82,28 @@ public class RecordAnalysisController {
 	public HouseholdAccountBook getHouseholdAccountBook(@RequestParam("Id") String Id) {
 
 		return recordservice.getRecord(Id);
+	}
+
+	/**
+	 * 当月の家計簿取得
+	 * 
+	 * @return 当月の家計簿リスト
+	 * 
+	 */
+	@GetMapping("/current-records")
+	public int[] getCurrentRecords() {
+
+		// 該当する家計簿を取得する
+		List<HouseholdAccountBook> currentRecords = recordservice.getCurrentRecords();
+
+		int[] totalAmounts = new int[10];
+
+		// 配列にcategoryId順で合算した金額を格納
+		for (HouseholdAccountBook householdAccountBook : currentRecords) {
+			totalAmounts[householdAccountBook.getCategoryId() - 1] = householdAccountBook.getAmountOfMoney();
+		}
+
+		return totalAmounts;
 	}
 
 }
