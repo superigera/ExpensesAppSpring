@@ -24,3 +24,9 @@ insert into records(dating, amountOfMoney, categoryId, remarks,created_at)values
 ('2023-03-12', 4000, 2, '備考欄', CURRENT_TIMESTAMP),
 ('2023-03-13', 5000, 4, '備考欄', CURRENT_TIMESTAMP),
 ('2023-03-14', 6000, 5, '備考欄', CURRENT_TIMESTAMP);
+
+
+insert into inquiries(lastName,firstName,email,content)values
+('鈴木', '健太1', 'test1@test.co.jp', 'test'),
+('鈴木', '健太2', 'test2@test.co.jp', 'test2'),
+('鈴木', '健太3', 'test3@test.co.jp', 'test3');

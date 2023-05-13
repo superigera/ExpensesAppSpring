@@ -34,4 +34,11 @@ public interface Recordservice {
 	 */
 	public HouseholdAccountBook getRecord(String Id);
 
+	/**
+	 * 当月の家計簿取得
+	 * 
+	 * @return 家計簿リスト
+	 */
+	public List<HouseholdAccountBook> getCurrentRecords();
+
 }
