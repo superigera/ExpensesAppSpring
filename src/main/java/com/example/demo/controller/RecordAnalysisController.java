@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.HouseholdAccountBook;
 import com.example.demo.service.CategoryService;
+import com.example.demo.service.CommonService;
 import com.example.demo.service.Recordservice;
 
 @CrossOrigin
@@ -23,6 +24,9 @@ public class RecordAnalysisController {
 
 	@Autowired
 	Recordservice recordservice;
+
+	@Autowired
+	CommonService commonService;
 
 	/**
 	 * カテゴリー取得
@@ -93,8 +97,12 @@ public class RecordAnalysisController {
 	@GetMapping("/current-records")
 	public int[] getCurrentRecords() {
 
+		// 月初・月末取得
+		String beginningMoth = commonService.getBeginningMoth();
+		String endMonth = commonService.getEndMoth();
+
 		// 該当する家計簿を取得する
-		List<HouseholdAccountBook> currentRecords = recordservice.getCurrentRecords();
+		List<HouseholdAccountBook> currentRecords = recordservice.getCurrentRecords(beginningMoth, endMonth);
 
 		int[] totalAmounts = new int[10];
 

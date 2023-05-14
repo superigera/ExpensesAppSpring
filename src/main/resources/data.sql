@@ -18,12 +18,12 @@ insert into categories(categoryName, categoryFlag)values
 
 
 insert into records(dating, amountOfMoney, categoryId, remarks,created_at)values
-('2023-03-12', 1000, 1, '備考欄', CURRENT_TIMESTAMP),
-('2023-03-13', 2000, 3, '備考欄', CURRENT_TIMESTAMP),
-('2023-03-11', 3000, 1, '備考欄', CURRENT_TIMESTAMP),
-('2023-03-12', 4000, 2, '備考欄', CURRENT_TIMESTAMP),
-('2023-03-13', 5000, 4, '備考欄', CURRENT_TIMESTAMP),
-('2023-03-14', 6000, 5, '備考欄', CURRENT_TIMESTAMP);
+('2023-05-12', 1000, 1, '備考欄', CURRENT_TIMESTAMP),
+('2023-05-13', 2000, 3, '備考欄', CURRENT_TIMESTAMP),
+('2023-05-11', 3000, 1, '備考欄', CURRENT_TIMESTAMP),
+('2023-05-12', 4000, 2, '備考欄', CURRENT_TIMESTAMP),
+('2023-05-13', 5000, 4, '備考欄', CURRENT_TIMESTAMP),
+('2023-05-14', 6000, 5, '備考欄', CURRENT_TIMESTAMP);
 
 
 insert into inquiries(lastName,firstName,email,content)values
