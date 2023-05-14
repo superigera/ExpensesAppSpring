@@ -22,5 +22,5 @@ public interface RecordAnalysisMapper {
 	public HouseholdAccountBook getRecord(String Id);
 
 	// 当月の家計簿取得
-	public List<HouseholdAccountBook> getCurrentRecords();
+	public List<HouseholdAccountBook> getCurrentRecords(String beginningMoth, String endMonth);
 }

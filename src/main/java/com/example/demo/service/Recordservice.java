@@ -39,6 +39,6 @@ public interface Recordservice {
 	 * 
 	 * @return 家計簿リスト
 	 */
-	public List<HouseholdAccountBook> getCurrentRecords();
+	public List<HouseholdAccountBook> getCurrentRecords(String beginningMoth, String endMonth);
 
 }
