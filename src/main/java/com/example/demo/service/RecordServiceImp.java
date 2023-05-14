@@ -53,9 +53,21 @@ public class RecordServiceImp implements Recordservice {
 	 * 
 	 * @param Id
 	 */
+	@Override
 	public HouseholdAccountBook getRecord(String Id) {
 
 		return recordAnalysisMapper.getRecord(Id);
+	}
+
+	/**
+	 * 家計簿取得
+	 * 
+	 * @return 家計簿リスト
+	 */
+	@Override
+	public List<HouseholdAccountBook> getCurrentRecords(String beginningMoth, String endMonth) {
+
+		return recordAnalysisMapper.getCurrentRecords(beginningMoth, endMonth);
 	}
 
 }

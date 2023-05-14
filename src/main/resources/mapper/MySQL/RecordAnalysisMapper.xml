@@ -59,4 +59,13 @@
 		where recordId = #{recordId}
 	</select>
 	
+	<!-- 当月の家計簿取得 -->
+	<select id="getCurrentRecords" resultType="com.example.demo.model.HouseholdAccountBook">
+		select categoryId, sum(amountOfMoney) as amountOfMoney 
+		from records 
+		where dating between #{beginningMoth} AND #{endMonth}
+		group by categoryId 
+		order by categoryId asc	
+	</select>
+	
 </mapper>

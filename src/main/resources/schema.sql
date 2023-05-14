@@ -25,3 +25,14 @@ CREATE TABLE IF NOT EXISTS records (
   created_at VARCHAR(50),
   update_at VARCHAR(50)
 );
+
+
+CREATE TABLE IF NOT EXISTS inquiries (
+  inquiryId INT PRIMARY KEY AUTO_INCREMENT,
+  lastName VARCHAR(50),
+  firstName VARCHAR(50),
+  email VARCHAR(50),
+  content VARCHAR(50),
+  created_at VARCHAR(50),
+  update_at VARCHAR(50)
+);
