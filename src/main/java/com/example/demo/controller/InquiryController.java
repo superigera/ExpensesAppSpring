@@ -28,11 +28,11 @@ public class InquiryController {
 	public String receptionInquiry(@RequestBody InquiryInfo InquiryInfo) throws IOException {
 
 		// 問い合わせ内容をDB登録
-		inquiryService.registerInquiryInfo(InquiryInfo);
+//		inquiryService.registerInquiryInfo(InquiryInfo);
 
 		// メール送信処理
 		inquiryService.sendEmail(InquiryInfo);
-		System.out.println(InquiryInfo);
+//		System.out.println(InquiryInfo);
 		return "test";
 	}
 }

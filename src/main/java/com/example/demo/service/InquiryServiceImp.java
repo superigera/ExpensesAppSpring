@@ -7,13 +7,13 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.model.InquiryInfo;
 import com.example.demo.repository.InquiryMapper;
-import com.sendgrid.Method;
-import com.sendgrid.Request;
-import com.sendgrid.Response;
-import com.sendgrid.SendGrid;
+
+import io.github.cdimascio.dotenv.Dotenv;
 
 @Service
 public class InquiryServiceImp implements InquiryService {
+
+	Dotenv dotenv = Dotenv.load();
 
 	@Autowired
 	InquiryMapper inquiryMapper;
@@ -38,20 +38,23 @@ public class InquiryServiceImp implements InquiryService {
 	@Override
 	public void sendEmail(InquiryInfo InquiryInfo) throws IOException {
 
-		try {
-			SendGrid sg = new SendGrid("API:KEY");
-			Request request = new Request();
-			request.setMethod(Method.POST);
-			request.setEndpoint("mail/send");
-			request.setBody(
-					"{\"personalizations\":[{\"to\":[{\"email\":\"super_rigera@icloud.com\"}],\"subject\":\"Sending with Twilio SendGrid is Fun\"}],\"from\":{\"email\":\"test@example.com\"},\"content\":[{\"type\":\"text/plain\",\"value\": \"and easy to do anywhere, even with Java\"}]}");
-			Response response = sg.api(request);
-			System.out.println(response.getStatusCode());
-			System.out.println(response.getBody());
-			System.out.println(response.getHeaders());
-		} catch (IOException ex) {
-			System.out.println(ex);
-			throw ex;
-		}
+		String secretKey = dotenv.get("SECRET_KEY");
+		System.out.println(secretKey);
+
+//		try {
+//			SendGrid sg = new SendGrid("API:KEY");
+//			Request request = new Request();
+//			request.setMethod(Method.POST);
+//			request.setEndpoint("mail/send");
+//			request.setBody(
+//					"{\"personalizations\":[{\"to\":[{\"email\":\"super_rigera@icloud.com\"}],\"subject\":\"Sending with Twilio SendGrid is Fun\"}],\"from\":{\"email\":\"test@example.com\"},\"content\":[{\"type\":\"text/plain\",\"value\": \"and easy to do anywhere, even with Java\"}]}");
+//			Response response = sg.api(request);
+//			System.out.println(response.getStatusCode());
+//			System.out.println(response.getBody());
+//			System.out.println(response.getHeaders());
+//		} catch (IOException ex) {
+//			System.out.println(ex);
+//			throw ex;
+//		}
 	}
 }
