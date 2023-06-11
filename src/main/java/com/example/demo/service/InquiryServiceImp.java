@@ -8,12 +8,10 @@ import org.springframework.stereotype.Service;
 import com.example.demo.model.InquiryInfo;
 import com.example.demo.repository.InquiryMapper;
 
-import io.github.cdimascio.dotenv.Dotenv;
-
 @Service
 public class InquiryServiceImp implements InquiryService {
 
-	Dotenv dotenv = Dotenv.load();
+//	Dotenv dotenv = Dotenv.load();
 
 	@Autowired
 	InquiryMapper inquiryMapper;
@@ -38,8 +36,8 @@ public class InquiryServiceImp implements InquiryService {
 	@Override
 	public void sendEmail(InquiryInfo InquiryInfo) throws IOException {
 
-		String secretKey = dotenv.get("SECRET_KEY");
-		System.out.println(secretKey);
+//		String secretKey = dotenv.get("SECRET_KEY");
+//		System.out.println(secretKey);
 
 //		try {
 //			SendGrid sg = new SendGrid("API:KEY");
