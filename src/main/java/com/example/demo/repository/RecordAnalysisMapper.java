@@ -10,7 +10,7 @@ import com.example.demo.model.HouseholdAccountBook;
 public interface RecordAnalysisMapper {
 
 	// 家計簿リスト取得
-	public List<HouseholdAccountBook> getRecords(Boolean bool, int categoryId, String startDating, String endDating);
+	public List<HouseholdAccountBook> getRecords(int categoryId, String startDating, String endDating);
 
 	// 家計簿登録
 	public void createRecord(HouseholdAccountBook householdAccountBook);

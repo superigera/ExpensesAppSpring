@@ -17,12 +17,15 @@ public class RecordServiceImp implements Recordservice {
 	/**
 	 * 家計簿取得
 	 * 
+	 * @param カテゴリーID
+	 * @param 開始日
+	 * @param 終了日
 	 * @return 家計簿リスト
 	 */
 	@Override
-	public List<HouseholdAccountBook> getRecords(Boolean bool, int categoryId, String startDating, String endDating) {
+	public List<HouseholdAccountBook> getRecords(int categoryId, String startDating, String endDating) {
 
-		return recordAnalysisMapper.getRecords(bool, categoryId, startDating, endDating);
+		return recordAnalysisMapper.getRecords(categoryId, startDating, endDating);
 	}
 
 	/**

@@ -42,16 +42,17 @@ public class RecordAnalysisController {
 	/**
 	 * 家計簿取得
 	 * 
-	 * @param sortフラグ(trueの時昇順、falseの時降順)
+	 * @param カテゴリーID
+	 * @param 開始日
+	 * @param 終了日
 	 * @return 家計簿リスト
 	 * 
 	 */
 	@GetMapping("/records")
-	public List<HouseholdAccountBook> getRecordSortList(@RequestParam("categoryId") int categoryId,
-			@RequestParam("startDating") String startDating, @RequestParam("endDating") String endDating,
-			@RequestParam("sort") Boolean bool) {
+	public List<HouseholdAccountBook> getRecordsList(@RequestParam("categoryId") int categoryId,
+			@RequestParam("startDating") String startDating, @RequestParam("endDating") String endDating) {
 
-		return recordservice.getRecords(bool, categoryId, startDating, endDating);
+		return recordservice.getRecords(categoryId, startDating, endDating);
 	}
 
 	/**

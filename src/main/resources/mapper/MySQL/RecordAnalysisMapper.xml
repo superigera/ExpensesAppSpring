@@ -19,12 +19,6 @@
 	  	<if test="endDating != ''">
 	    	AND dating <![CDATA[ <= ]]>#{endDating}
 	  	</if>
-	    <if test="bool">
-	        order by records.dating
-	    </if>
-	    <if test="not bool">
-	        order by records.dating desc
-	    </if>	
 	</select>
 	
 	<!-- 家計簿登録 -->
