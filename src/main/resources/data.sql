@@ -1,9 +1,3 @@
-insert into members(lastName,firstName,email,password)values
-('鈴木', '健太1', 'test1@test.co.jp', 'testpass'),
-('鈴木', '健太2', 'test2@test.co.jp', 'testpass'),
-('鈴木', '健太3', 'test3@test.co.jp', 'testpass');
-
-
 insert into categories(categoryName, categoryFlag)values
 ('給与', '0'),
 ('ボーナス', '0'),
