@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -23,9 +24,10 @@ public class InquiryController {
 	 * 
 	 * @param 問い合わせ内容
 	 * @throws IOException
+	 * @throws URISyntaxException
 	 */
 	@PostMapping("/inquiry")
-	public String receptionInquiry(@RequestBody InquiryInfo InquiryInfo) throws IOException {
+	public String receptionInquiry(@RequestBody InquiryInfo InquiryInfo) throws IOException, URISyntaxException {
 
 		// 問い合わせ内容をDB登録
 //		inquiryService.registerInquiryInfo(InquiryInfo);
